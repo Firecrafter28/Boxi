@@ -1,3 +1,6 @@
+# HI!
+> This Is My First Game, Which I've Been Making In My Free Time During School Recently. I Hope You Enjoy!
+
 # Help Menu
 
 ## Controls
