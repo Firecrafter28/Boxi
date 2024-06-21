@@ -1,0 +1,9 @@
+const GoalImage     = new Image("../Images/Box.svg");            // Box Image
+const PlayerFace1   = new Image("../Images/Face1.svg");          // Player Face 1 Image
+const PlayerFace2   = new Image("../Images/Face2.svg");          // Player Face 2 Image
+const DarkModeIcon  = new Image("../Images/DarkModeIcon.svg");   // Dark Mode Icon
+const LightModeIcon = new Image("../Images/LightModeIcon.svg");  // Light Mode Icon
+const ArrowUpImg    = new Image("../Images/Up.png");             // Up Arrow Image
+const ArrowLeftImg  = new Image("../Images/Left.png");           // Left Arrow Image
+const ArrowRightImg = new Image("../Images/Right.png");          // Right Arrow Image
+const ArrowDownImg  = new Image("../Images/Down.png");           // Down Arrow Image

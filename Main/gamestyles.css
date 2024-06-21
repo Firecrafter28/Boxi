@@ -1,0 +1,364 @@
+/*
+    The styles for boxi.html.
+*/
+
+
+/**** Elements ****/
+
+/* Body */
+body {
+
+    /* Color */
+    background-color: rgb(41, 41, 41);
+
+    /* Font */
+    font-family: 'fira code';
+    font-size: 20px;
+}
+
+/* Buttons */
+button {
+    
+    /* Color */
+    color: black;
+    background-color: aqua;
+
+    /* Border */
+    border-color: aqua;
+    border-radius: 5px;
+
+    /* Size */
+    scale: 1;
+
+    /* Font */
+    font-weight: bolder;
+    font-family: 'fira code';
+
+    /* Layer */
+    z-index: 10;
+
+    filter: drop-shadow(0 0 0.2rem aqua);
+}
+
+button:hover {
+
+    /* Color */
+    background-color: aquamarine;
+    border-color: aquamarine;
+
+    /* Cursor */
+    cursor: pointer;
+
+    /* Size */
+    scale: 1.1;
+
+    filter: drop-shadow(0 0 0.2rem aquamarine);
+}
+
+button:active {
+
+    /* Color */
+    background-color: cadetblue;
+    border-color: cadetblue;
+
+    filter: drop-shadow(0 0 0.8rem cadetblue);
+}
+   
+/* Labels */
+label {
+
+    /* Color */
+    color: white;
+
+    /* Layer */
+    z-index: 10;
+
+}
+    
+/* Spans */
+span {
+
+    /* Color */
+    color: aqua;
+}
+
+/* Links */
+a {
+
+    /* Font */
+    font-family: 'hololens mdl2 assets';
+    font-size: 50px;
+    text-decoration: none;
+
+    /* Color */
+    color: aqua;
+
+    /* Position */
+    margin-left: 95%;
+    position: absolute;
+
+    /* Size */
+    scale: 1;
+
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+a:hover {
+
+    /* Color */
+    color: aquamarine;
+
+    /* Size */
+    scale: 1.1;
+}
+/**********************/
+
+
+/**** IDs ****/
+
+#TimerDisplay {
+    position: absolute;
+    margin-left: 100px;
+    margin-top: -25px;
+    color:aqua;
+
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+/* Player */
+#player {
+
+    /* Display */
+    display: block;
+
+    /* Position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* Size */
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+
+    /* Color */
+    background: #ffffff;
+
+    /* Border */
+    border-radius: 25%;
+
+    /* Layer */
+    z-index: -1;
+
+    filter: drop-shadow(0 0 0.3rem white);
+}
+    
+/* Box */
+#box {
+
+    /* Display */
+    display: block;
+
+    /* Position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* Size */
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+
+    /* Layer */
+    z-index: -1;
+}
+
+/* Goal */
+#goal {
+
+    /* Size */
+    width: 30px;
+    height: 30px;
+
+    /* Display */
+    display: block;
+
+    /* Position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* Size */
+    transform: translate(-50%, -50%);
+
+    /* Layer */
+    z-index: -2;
+}
+
+/* Score */
+#score {
+
+    /* Position */
+    text-align: center;
+
+    /* Color */
+    color: aqua;
+
+    /* Layer */
+    z-index: 100;
+
+    /* Size */
+    scale: 1;
+
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+/* Reset Button */
+#reset {
+
+    /* Font */
+    font-family: 'hololens mdl2 assets';
+    font-size: 40px;
+
+    /* Color */
+    background-color: transparent;
+    color: aqua;
+
+    /* Border */
+    border-style: hidden;
+
+    /* Size */
+    scale: 1;
+
+    /* Position */
+    position: absolute;
+    margin-left: 90%;
+    margin-top: 7px;
+}
+    
+#reset:hover {
+
+    /* Color */
+    color: aquamarine;
+
+    /* Size */
+    scale: 1.1;
+}
+
+#xy {
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+#bxy {
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+#gxy {
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+/** Controls **/
+
+/* Up and Down Buttons */
+#up, #down {
+
+    /* Position */
+    margin-left: 26px;
+    margin-top: 2px;
+    position: absolute;
+}
+
+/* Right Button */
+#right {
+
+    /* Position */
+    margin-left: 15px;
+}
+
+
+/** Icons **/
+/* Light Mode Icon */
+#LMI img {
+
+    /* Size */
+    scale: 1;
+
+    /* Position */
+    margin-top: -220px;
+    margin-right: 1283px;
+    position: absolute;
+
+    /* Cursor */
+    cursor: pointer;
+
+    filter: drop-shadow(0 0 0.8rem yellow);
+}
+
+#LMI img:hover {
+
+    /* Size */
+    scale: 1.1;
+
+    filter: drop-shadow(0 0 0.8rem orange);
+}
+
+/* Dark Mode Icon */
+#DMI img {
+
+    /* Size */
+    scale: 1;
+
+    /* Position */
+    margin-top: -220px;
+    margin-right: 1283px;
+    position: absolute;
+
+    /* Cursor */
+    cursor: pointer;
+
+    filter: drop-shadow(0 0 0.8rem yellow);
+}
+
+#DMI img:hover {
+
+    /* Size */
+    scale: 1.1;
+
+    filter: drop-shadow(0 0 0.8rem orange);
+}
+
+/* Help Menu Button */
+#Help {
+
+    /* Font */
+    font-family: 'Fira Code';
+
+    /* Position */
+    position: absolute;
+    margin-left: 1140px;
+}
+
+/* Loading Screen */
+#loadtext {
+    /* 
+        NOTE: Loading Screen is hidden by javascript (gamescript.js)
+        at the end of the Start() function once it is loaded
+    */
+
+    /* Visibility */
+    visibility: visible; 
+
+    /* Color */
+    color: rgb(41, 41, 41);
+    background-color: aqua;
+
+    /* Position */
+    text-align: center;
+
+    /* Border */
+    border-style: solid;
+    border-color: aqua;
+    border-width: 5px;
+
+    filter: drop-shadow(0 0 0.8rem aqua);
+}

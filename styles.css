@@ -1,0 +1,131 @@
+/*
+    Styles for the main menu (index.html).
+*/
+
+/**** Elements ****/
+/* Buttons */
+.normalbtn {
+    /* Position */
+    text-align: center;
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 20%;
+
+    /* Font */
+    text-decoration: none;
+    font-family: 'Fira Code';
+    font-size: 30px;
+    font-weight: 900;
+
+    /* Color */
+    color: rgb(43, 43, 43);
+    background-color: aqua;
+    
+    /* Border */
+    border-style: solid;
+    border-color: aqua;
+    border-radius: 10px;
+
+    /* Size */
+    width: 200px;
+    height: 46px;
+
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+.normalbtn:hover {
+    /* Color */
+    border-color: aquamarine;
+    background-color: aquamarine;
+
+    filter: drop-shadow(0 0 0.8rem aquamarine);
+
+    /* Animation */
+    animation: hover 0.1s steps(50) forwards;
+    /* 
+        Animation Details:
+        --------------------
+        Name: Hover
+        Length: 0.1 seconds
+        Steps: 50
+        Direction: Forwards
+    */
+}
+
+/* Body */
+body {
+
+    /* Color */
+    background-color: rgb(43, 43, 43);
+}
+
+
+
+
+/* Footer */
+footer {
+
+    /* Color */
+    color: aqua;
+
+    /* Font */
+    font-family: 'Times New Roman';
+
+    /* Position */
+    position: absolute;
+    vertical-align: bottom;
+    margin-top: 32%;
+}
+
+/**** IDs ****/
+/* Dev Mode Button */
+#Dev {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    margin-top: -165px;
+    position: absolute;
+    filter: drop-shadow(0 0 0.4rem lime);
+}
+
+#Dev:hover {
+    scale: 1.1;
+    filter: drop-shadow(0 0 0.5rem green);
+}
+
+/**** Classes ****/
+/* Title */
+.title {
+
+    /* Position */
+    text-align: center;
+    position: absolute; 
+    margin-top: -190px;
+
+    filter: drop-shadow(0 0 2rem white);
+
+    /* Size */
+    scale: 0.38;
+}
+
+/**** Animations ****/
+/* Hover */
+@keyframes hover {
+    0% {
+        
+        /* Font */
+        font-size: 30px;
+
+        /* Width */
+        width: 200px;
+    }
+    100% {
+
+        /* Font */
+        font-size: 35px;
+
+        /* Width */
+        width: 205px;
+    }
+}

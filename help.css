@@ -1,0 +1,157 @@
+/* 
+    The styles for the help menu (help.html) (Linked to by index.html).
+*/
+
+/* Everything */
+* {
+    /* Font */
+    font-family: 'Fira Code';
+}
+
+/**** Elements ****/
+
+/* Body */
+body {
+
+    /* Color */
+    background-color: rgb(41, 41, 41);
+}
+
+/* Header 1 */
+h1 {
+
+    /* Position */
+    text-align: center;
+
+    /* Color */
+    color: aqua;
+}
+
+/* Header 2 */
+h2 {
+
+    /* Font */
+    text-decoration: underline;
+
+    /* Color */
+    color: aqua;
+}
+
+/* Links */
+a {
+    /* Color */
+    color: aqua;
+
+    /* Font */
+    text-decoration: none;
+}
+
+a:hover {
+
+    /* Color */
+    color: aquamarine;
+
+    /* Animation */
+    animation: hover 0.1s steps(50) forwards; 
+    /* 
+        Animation Details:
+        --------------------
+        Name: Hover
+        Length: 0.1 seconds
+        Steps: 50
+        Direction: Forwards
+    */
+}
+
+/* Article */
+article {
+
+    /* Color */
+    color: aqua;
+}
+    
+article b {
+
+    /* Color */
+    color: aquamarine;
+}
+
+/* Thematic Break */
+hr {
+
+    /* Border */
+    border-style: solid;
+    border-color: aqua;
+}
+
+/* Paragraph */
+p {
+
+    /* Color */
+    color: aqua;
+
+    /* Size */
+    width: 500px;
+}
+
+/**** Classes ****/
+/* Icons */
+.icon {
+
+    /* Font */
+    font-family: 'hololens mdl2 assets';
+}
+
+/* Dark Mode & Light Mode Icons */
+.DM, .LM {
+
+    /* Size */
+    width: 20px;
+    height: 20px;
+}
+
+
+/**** Scrollbar ****/
+
+/* Width */
+::-webkit-scrollbar {
+
+    /* Width */
+    width: 10px;
+}
+    
+/* Track */
+::-webkit-scrollbar-track {
+
+    /* Color */
+    background: rgb(21,21,21);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+
+    /* Color */
+    background: aqua;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+
+    /* Color */
+    background: aquamarine;
+}
+
+/**** Animations ****/
+/* Hover */
+@keyframes hover {
+    0% {
+
+        /* Position */
+        margin-left: initial;
+    }
+    100% {
+
+        /* Position */
+        margin-left: -5px;
+    }
+}

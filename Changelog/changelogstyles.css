@@ -1,0 +1,208 @@
+/* 
+    The styles for the help menu (help.html) (Linked to by boxi.html).
+*/
+
+/* Everything */
+* {
+    /* Font */
+    font-family: 'Fira Code';
+}
+
+/**** Elements ****/
+
+/* Body */
+body {
+
+    /* Color */
+    background-color: rgb(41, 41, 41);
+}
+
+/* Header 1 */
+h1 {
+
+    /* Position */
+    text-align: center;
+
+    /* Color */
+    color: aqua;
+
+    filter: drop-shadow(0 0 0.8rem aqua);
+}
+
+/* Header 2 */
+h2 {
+
+    /* Font */
+    text-decoration: underline;
+
+    /* Color */
+    color: aqua;
+
+    filter: drop-shadow(0 0 0.3rem aqua);
+}
+
+
+
+/* Article */
+article {
+
+    /* Color */
+    color: aqua;
+    filter: drop-shadow(0 0 0.3rem aqua);
+}
+    
+article b {
+
+    /* Color */
+    color: aquamarine;
+    filter: drop-shadow(0 0 0.3rem aquamarine);
+}
+
+/* Thematic Break */
+hr {
+
+    /* Border */
+    border-style: solid;
+    border-color: aqua;
+}
+
+/* Lists */
+ul {
+    list-style: square;
+}
+li {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+/**** IDs ****/
+/* Clock */
+#clock {
+    position: absolute;
+    scale: 0.45;
+    margin-top: -20%;
+    margin-left: 73%;
+    filter: blur(2px) drop-shadow(0 0 0.8rem aqua);
+}
+/**** Classes ****/
+
+/* Source Link */
+.source {
+    /* Color */
+    color: aquamarine;
+
+    /* Font */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.source:hover {
+    /* Animation */
+    animation: hoverGrow 0.1s steps(50) forwards; 
+    /* 
+        Animation Details:
+        --------------------
+        Name: HoverGrow
+        Length: 0.1 seconds
+        Steps: 50
+        Direction: Forwards
+    */
+}
+
+/* Back Button */
+.back {
+    /* Color */
+    color: aqua;
+    filter: drop-shadow(0 0 0.3rem aqua);
+
+    /* Font */
+    text-decoration: none;
+}
+
+.back:hover{
+    /* Color */
+    color: aquamarine;
+    filter: drop-shadow(0 0 0.3rem aquamarine);
+
+    /* Animation */
+    animation: hoverMove 0.1s steps(50) forwards; 
+    /* 
+        Animation Details:
+        --------------------
+        Name: HoverMove
+        Length: 0.1 seconds
+        Steps: 50
+        Direction: Forwards
+    */
+}
+
+/**** Scrollbar ****/
+
+/* Width */
+::-webkit-scrollbar {
+
+    /* Width */
+    width: 10px;
+}
+    
+/* Track */
+::-webkit-scrollbar-track {
+
+    /* Color */
+    background: rgb(21,21,21);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+
+    /* Color */
+    background: aqua;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+
+    /* Color */
+    background: aquamarine;
+}
+
+
+
+/**** Animations ****/
+/* Hover Move */
+@keyframes hoverMove {
+    0% {
+
+        /* Position */
+        margin-left: initial;
+    }
+    100% {
+
+        /* Position */
+        margin-left: -5px;
+    }
+}
+
+/* Hover Grow */
+@keyframes hoverGrow {
+    0% {
+        /* Size */
+        font-size: initial;
+    }
+    100% {
+        /* Size */
+        font-size: larger;
+    }
+}
+
+/* Rotate */
+@keyframes rotate {
+    0% {
+        /* Rotation */
+        rotate: 180;
+    }
+    100% {
+        /* Rotation */
+        rotate: 360;
+    }
+}

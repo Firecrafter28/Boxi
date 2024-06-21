@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<!-- Language: English -->
+<html lang='en'>
+    <head>
+
+        <!-- Title -->
+        <title>Boxi</title>
+
+        <!-- Charset -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="gamestyles.css">
+
+        <!-- Icon -->
+        <link rel="icon" type="img/x-icon" href="../Images/favicon.svg">
+
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    </head>
+    <!-- Run The Start() Function When The Page Loads -->
+    <body onload="Start()">
+
+        <!-- Home Button -->
+        <a href="../index.html" id="Home"></a>
+
+        <!-- Reset Button -->
+        <button id="reset" onclick="reset()"></button>
+
+        <!-- Help Menu Button -->
+        <a href="help.html" id="Help">?</a>
+
+        <!-- Player -->
+        <div id="player">
+            
+            <!-- Face With Mouth (Face1) -->
+            <img id='face1' style="margin-left: 3px; margin-top: 5px; position: absolute;
+                visibility: visible;" src="../Images/Face1.svg"
+            >         
+            
+            <!-- Face Without Mouth (Face2) -->
+            <img id='face2' style="visibility: hidden;" src="../Images/Face2.svg">
+        
+        </div>
+
+        <!-- Goal -->
+        <div id="goal">
+            <img src="../Images/Goal.svg">
+        </div>
+
+        <!-- Score -->
+        <div id="score">Score: 0</div>
+
+        <!-- Timer-->
+        <div id="TimerDisplay">0:0:0</div>
+
+        <!-- Controls -->
+        <div id="controls">
+            <br>
+
+            <!-- Up -->
+            <button id="up" onclick="up()"><b>↑</b></button>
+            <br>
+
+            <!-- Left -->
+            <button id="left" onclick="left()"><b>←</b></button>
+
+            <!-- Right -->
+            <button id="right" onclick="right()"><b>→</b></button>
+            <br>
+
+            <!-- Down -->
+            <button id="down" onclick="down()"><b>↓</b></button>
+            <br>
+            <br>
+
+            <!-- Player Coorinates-->
+            <span id='xy'>Player: (?,?)</span>
+            <br>
+
+            <!-- Box Coorinates -->
+            <span id="bxy">Box: (?,?)</span>
+            <br>
+
+            <!-- Goal Coordinates -->
+            <span id="gxy">Goal: (?,?)</span>
+
+        </div>
+
+        <!-- Box -->
+        <div id=box>
+            <img src="../Images/Box.svg">
+        </div>
+
+        <!-- Light Mode Icon -->
+        <span id="LMI">
+            <img src="../Images/LightModeIcon.svg" onclick="DarkMode()">
+        </span>
+
+        <!-- Dark Mode Icon-->
+        <span id="DMI">
+            <img src="../Images/DarkModeIcon.svg" onclick="LightMode()">
+        </span>
+
+        <!-- Loading Screen -->
+        <h2 id="loadtext">LOADING... 
+            <br>
+            if this is still here in 30 seconds reload the page
+        </h2>
+        
+        <!-- Scripts -->
+        <script src="Scripts/colors.js"></script>
+        <script src="Scripts/controls.js"></script>
+        <script src="Scripts/coordvars.js"></script>
+        <script src="Scripts/faces.js"></script>
+        <script src="Scripts/gamescript.js"></script>
+        <script src="Scripts/loadelements.js"></script>
+        <script src="Scripts/loadimages.js"></script>
+        <script src="Scripts/loadsounds.js"></script>
+        <script src="Scripts/modes.js"></script>
+        <script src="Scripts/movement.js"></script>
+        <script src="Scripts/progressbar.js"></script>
+        <script src="Scripts/random.js"></script>
+        <script src="Scripts/reset.js"></script>
+        <script src="Scripts/score.js"></script>
+        <script src="Scripts/start.js"></script>
+        <script src="Scripts/stretch.js"></script>
+        <script src="Scripts/timer.js"></script>
+        <script src="Scripts/update.js"></script>
+</html>
