@@ -28,7 +28,7 @@
 ## Changelog
 > ### Version 0.6 (Latest)
 
->> Design Changes And Javascript Organization
+> ##### Design Changes And Javascript Organization
 
 > - Added A Glow Effect To Lots Of Things
 `filter: drop-shadow(0 0 0.8rem aqua);`
@@ -76,7 +76,7 @@ update.js
 
 > ### Version 0.5
 
->> A Bunch Of Bugfixes And Additions. This Update Is The Biggest So Far, So Get Ready!
+> ##### A Bunch Of Bugfixes And Additions. This Update Is The Biggest So Far, So Get Ready!
 
 > - Updated Method Of Version Numbering
 > - Changed Changelog Scrollbar Style Now That It Is Long Enough To Be Visible:
@@ -157,20 +157,20 @@ function timer(){
 
 > ### Version 0.4
 
->> Feature Removal
+> ##### Feature Removal
 
 > - Removed Background Music (It Was To Much Of A Pain To Try And Implement Well)
 
 > ### Version 0.3
 
->> Bugfix And Music
+> ##### Bugfix And Music
 
 > - Fixed Button Sound Effects On Main Menu
 > - Added Background Music | Made With Chrome Music Lab, Music Can Be Found  [Here](https://musiclab.chromeexperiments.com/Song-Maker/song/5857563646754816)
 
 > ### Version 0.2
 
->> Bugfixs And Sounds
+> ##### Bugfixs And Sounds
 
 > - Updated Title Image
 > - Fixed Help And Changelog Buttons Sending You To The Opposite Page
@@ -178,7 +178,7 @@ function timer(){
 
 > ### Version 0.1
 
->> A Few Style Changes And The Changelog
+> ##### A Few Style Changes And The Changelog
 
 > - Added Box Coordinates
 > - Added Goal Coordinates
