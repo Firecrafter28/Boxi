@@ -52,7 +52,7 @@ stretch.js
 timer.js
 update.js
 ```
-```
+```html
 <!-- Scripts -->
 <script src="Scripts/colors.js"></script>
 <script src="Scripts/controls.js"></script>
@@ -80,7 +80,7 @@ update.js
 
 > - Updated Method Of Version Numbering
 > - Changed Changelog Scrollbar Style Now That It Is Long Enough To Be Visible:
-```
+```css
 /**** Scrollbar ****/
 
 /* Width */
@@ -118,7 +118,7 @@ update.js
 > - Started Dating Changelog Versions
 > - Stopped Dating Changelog Versions (Couldn't Get It To Look Good)
 > - Moved The Changelog List Styles To The Seprate CSS File:
-```
+```css
 /* Lists */
 ul {
     list-style: square;
@@ -132,7 +132,7 @@ li {
 > - Added More Comments To HTML
 > - Made HTML Neater
 > - Added Timer
-```
+```js
 // Timer
 function timer(){
     var sec = 0; // Seconds
