@@ -100,7 +100,7 @@ footer {
     display: flex;
 }
 
-.github-logo {
+.link-container .github-link img {
     width: 50px;
 }
 /**** Animations ****/
