@@ -78,21 +78,7 @@ footer {
 }
 
 /**** IDs ****/
-/* Dev Mode Button */
-#Dev {
-    width: 50px;
-    height: 50px;
-    background: none;
-    border: none;
-    margin-top: -165px;
-    position: absolute;
-    filter: drop-shadow(0 0 0.4rem lime);
-}
 
-#Dev:hover {
-    scale: 1.1;
-    filter: drop-shadow(0 0 0.5rem green);
-}
 
 /**** Classes ****/
 /* Title */
@@ -107,6 +93,11 @@ footer {
 
     /* Size */
     scale: 0.38;
+}
+
+/* Github Link */
+.link-container {
+    display: flex;
 }
 
 /**** Animations ****/
