@@ -4,22 +4,24 @@ Styles for the main menu (index.html).
 
 /* Body */
 body {
-
     /* Color */
     background-color: rgb(43, 43, 43);
 
+    /* Size */
     height: 90vh;
 }
 
-/**** Elements ****/
 /* Buttons */
 .button-container {
+    /* Position */
     display: flex;
     flex-direction: column;
-    height: 250px;
     gap: 10px;
     justify-content: center;
     align-items: center;
+
+    /* Size */
+    height: 250px;
 }
 
 .normalbtn {
@@ -32,20 +34,22 @@ body {
     font-size: 30px;
     font-weight: 900;
 
-    /* Color */
-    color: rgb(43, 43, 43);
-    background-color: aqua;
     
     /* Border */
     border-style: solid;
     border-color: aqua;
     border-radius: 10px;
-
+    
     /* Size */
     width: 200px;
     height: 46px;
-
+    
+    /* Color */
+    color: rgb(43, 43, 43);
+    background-color: aqua;
     filter: drop-shadow(0 0 0.8rem aqua);
+
+    /* Transition */
     transition: all 0.3s ease;
 }
 
@@ -54,14 +58,13 @@ body {
     border-color: aquamarine;
     background-color: aquamarine;
     filter: drop-shadow(0 0 0.8rem aquamarine);
+
+    /* Font */
     font-size: 32px;
 }
 
-
-
 /* Footer */
 footer {
-
     /* Color */
     color: aqua;
 
@@ -69,53 +72,34 @@ footer {
     font-family: 'Times New Roman';
 }
 
-/**** IDs ****/
-
-
-/**** Classes ****/
 /* Title */
 .title-container {
+    /* Position */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .title {
-    /* Position */
+    /* Color */
     filter: drop-shadow(0 0 2rem white);
+    
     /* Size */
     width: 500px;
 }
 
 /* Github Link */
 .link-container {
+    /* Position */
     display: flex;
     flex-direction: column;
+
+    /* Size */
     height: 55px;
 }
 
 .github-link img {
+    /* Size */
     width: 50px;
 }
-
-/**** Animations ****/
-
-/* Hover */
-/*
-@keyframes hover {
-    0% {
-        
-        font-size: 30px;
-
-        width: 200px;
-    }
-    100% {
-
-
-        font-size: 35px;
-
-
-        width: 205px;
-    }
-}
-*/
