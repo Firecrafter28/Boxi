@@ -51,6 +51,9 @@ body {
 
     /* Transition */
     transition: all 0.3s ease;
+
+    /* Cursor */
+    cursor: pointer;
 }
 
 .normalbtn:hover {
@@ -102,4 +105,12 @@ footer {
 .github-link img {
     /* Size */
     width: 50px;
+
+    /* Transition */
+    transition: all 0.3s ease;
+}
+
+.github-link img:hover {
+    /* Invert Colors */
+    filter: invert();
 }

@@ -26,7 +26,16 @@
 --
 
 ## Changelog
-> ### Version 0.6 (Latest)
+> ### Version 0.7 (Latest)
+
+> ##### Main Menu CSS Improvements. I've Learned More About CSS And Have Decided To Make The Main Menu CSS Better.
+
+> - Switched from using `margin` and `position: absolute;` to using `flex`
+> - Switch from using animations to using `transition: all 0.3s ease;`
+> - Added a Github link
+> - Stopped using `<br>` for the button separation in favor of the `gap` property
+
+> ### Version 0.6
 
 > ##### Design Changes And Javascript Organization
 

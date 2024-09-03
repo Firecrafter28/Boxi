@@ -44,7 +44,7 @@ h2 {
 
 
 /* Article */
-article {
+.no-code, .has-code p{
 
     /* Color */
     color: aqua;
@@ -73,6 +73,15 @@ ul {
 li {
     padding-top: 4px;
     padding-bottom: 4px;
+}
+
+/* Code */
+code {
+    background-color: rgb(54,54,54);
+    color: aliceblue;
+    border-radius: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 /**** IDs ****/
