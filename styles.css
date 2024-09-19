@@ -2,6 +2,8 @@
 Styles for the main menu (index.html).
 */
 
+@import url(./Fonts/FIRACODE-VARIABLEFONT_WGHT.TTF);
+
 /* Body */
 body {
     /* Color */
@@ -51,6 +53,7 @@ body {
 
     /* Transition */
     transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
 
     /* Cursor */
     cursor: pointer;
