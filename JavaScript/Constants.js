@@ -5,4 +5,4 @@
 
 const constants = {}
 
-constants.VERSION = "0.8";
+constants.VERSION = "1.0";
