@@ -632,8 +632,6 @@ initTheme();
 incrementColorBtn.addEventListener("click", () => changeColor(false));
 decrementColorBtn.addEventListener("click", () => changeColor(true));
 
-// Initially set highscore
-if (getStoredValue("highscore") == undefined) setStoredValue("highscore", 0);
 
 const confirmationPopup = document.getElementById("confirmation-popup");
 confirmationPopup.close();
@@ -649,6 +647,11 @@ function resetHighscore() {
     setStoredValue("highscore", 0);
     location.reload();
 }
+
+// Initially set highscore
+if (getStoredValue("highscore") == undefined || getStoredValue("highscore") == null) {
+    resetHighscore();
+};
 
 // Handle responses to reset confirmation dialog
 highscoreResetConfirmationButton.addEventListener("click", () => resetHighscore());
