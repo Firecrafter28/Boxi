@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --logo-height: 25vh;
+    --logo-width: 350px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+/* Logo */
+#logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--logo-height);
+    margin-top: 20px;
+
+    > #logo {
+        width: var(--logo-width);
+    }
+}
+
+/* Options */
+#options-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - var(--logo-height));
+    gap: 10px;
+
+    & .option {
+        width: 150px;
+        height: 40px;
+        background: aqua;
+        border: none;
+        border-radius: 10px;
+        color: black;
+        font-size: 20px;
+        font-family: "Jetbrains Mono", "Fira Code", "Consolas", monospace;
+        cursor: pointer;
+    
+        &:hover {
+            background: aquamarine;
+        }
+    }
+}
+
+/* Footer */
+#footer {
+    & > #footer__left {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        > #version {
+            font-family: "JetBrains Mono", monospace;
+            color: aqua;
+            margin: 5px;
+        }
+    }
+
+    & > #footer__right {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        > #github-link {
+            padding: 5px;
+            
+            &:hover {
+                filter: brightness(0.8);
+            }
+
+            > #github-icon {
+                background: white;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 2px solid white;
+            }
+        }
+    }
+}
+
+

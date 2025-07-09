@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Boxi - Changelog</title>
+        <link rel="stylesheet" href="../Styles/globals.css" />
+        <link rel="stylesheet" href="../Styles/Changelog.css" />
+    </head>
+    <body>
+        <div id="link-container"></div>
+
+        <h1>Changelog</h1>
+
+        <div id="main">
+            <div class="version" data-version="1.0" data-latest>
+                <ul class="changes">
+                    <li>First full release</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.8">
+                <ul class="changes">
+                    <li>Gave elements aria-label and aria-keyshortcuts attributes</li>
+                    <li>
+                        Made naming of classes and IDs more consistant:
+                        <ul class="subchanges">
+                            <li>playerCoords -&gt; player-coords</li>
+                            <li>boxCoords -&gt; box-coords</li>
+                            <li>goalCoords -&gt; goal-coords</li>
+                            <li>subInfo -&gt; sub-info</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.7">
+                <ul class="changes">
+                    <li>Added changelog page</li>
+                    <li>
+                        Added error pages:
+                        <ul class="subchanges">
+                            <li>404 - Page Not Found</li>
+                            <li>400 - Bad Request</li>
+                        </ul>
+                    </li>
+                    <li>Switched to Google Fonts for the Jetbrains Mono CDN instead of JSDelivr</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.6">
+                <ul class="changes">
+                    <li>Added mobile controls</li>
+                    <li>Added highscore display</li>
+                    <li>Added option in settings menu to reset highscore</li>
+                    <li>Added reset highscore confirmation dialog</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.5">
+                <ul class="changes">
+                    <li>Mode help menu</li>
+                    <li>Added responsiveness to settings menu</li>
+                    <li>Added sizing for large screens</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.4">
+                <ul class="changes">
+                    <li>Added options bar</li>
+                    <li>Added settings menu</li>
+                    <li>Added changing player color</li>
+                    <li>Added light mode</li>
+                    <li>Gave help button an icon</li>
+                    <li>Added animations</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.3">
+                <ul class="changes">
+                    <li>Added box texture</li>
+                    <li>Added goal texture</li>
+                    <li>Added player texture</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.2">
+                <ul class="changes">
+                    <li>Finished base game</li>
+                </ul>
+            </div>
+
+            <div class="version" data-version="0.1">
+                <ul class="changes">
+                    <li>Added player coordinates</li>
+                    <li>Added box coordinates</li>
+                    <li>Added goal coordinates</li>
+                    <li>Added score display</li>
+                    <li>Added box</li>
+                    <li>Added goal</li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="../JavaScript/Changelog.js"></script>
+    </body>
+</html>

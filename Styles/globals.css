@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: #202025;
+}
+
+::-webkit-scrollbar {
+    background: #404040;
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #303030;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #252525;
+}

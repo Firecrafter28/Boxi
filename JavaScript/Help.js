@@ -1,0 +1,39 @@
+/**
+ * @author Firecrafter28
+ * @license GPL-3.0
+ */
+
+const backContainer = document.getElementById("link-container");
+const backLink = document.createElement("a");
+
+const getUrlParameter = (sParam) => {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split("&");
+    var sParameterName;
+
+    for (var i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split("=");
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+
+    return false;
+}
+
+const backParams = getUrlParameter("redirect");
+
+backLink.innerHTML = "<- Back";
+
+if (backParams == "game") {
+    backLink.href = "../Pages/Game.html" 
+} else if (backParams == "home") {
+    backLink.href = "../index.html"
+} else if (backParams == false) {
+    location.href = "../Pages/Errors/400.html";
+} else {
+    backLink.href = "../Pages/Errors/404.html";
+}
+
+backContainer.appendChild(backLink);

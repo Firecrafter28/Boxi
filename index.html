@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Boxi - Title</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="icon" type="img/x-icon" href="Images/favicon.svg">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Boxi - Home</title>
+        <link rel="stylesheet" href="./Styles/globals.css">
+        <link rel="stylesheet" href="./Styles/index.css">
+
+        <script src="./JavaScript/Constants.js"></script>
     </head>
     <body>
-        <div class="title-container">
-            <img class="title" src="Images/Title.svg">
+        <div id="logo-container">
+            <img src="./Assets/Other/Logo.svg" alt="logo" id="logo">
         </div>
-        <div class="button-container">
-            <button class="normalbtn" onclick="Play()">Play</button>
-            <button class="normalbtn" onclick="Help()">Help</button>
-            <button class="normalbtn" onclick="Changelog()">Changelog</button>
-        </div>
-
-        <!-- Github -->
-        <div class="link-container">
-            <a class="github-link" href="https://github.com/Firecrafter28/Boxi">
-                <img class="github-logo" alt="Github Logo" src="Images/git.png">
+        <div id="options-container">
+            <a href="./Pages/Game.html">
+                <button class="option" id="option-play" aria-label="play button" role="button">Play</button>
+            </a>
+            <a href="./Pages/Help.html?redirect=home">
+                <button class="option" id="option-help" aria-label="help button" role="button">Help</button>
+            </a>
+            <a href="./Pages/Changelog.html?redirect=home">
+                <button class="option" id="option-changelog" aria-label="changelog button" role="button">Changelog</button>
             </a>
         </div>
-        
-        <script src="homescript.js"></script>
+        <footer id="footer">
+            <div id="footer__left">
+                <div id="version"></div>
+            </div>
+            <div id="footer__right">
+                <a href="https://github.com/Firecrafter28" id="github-link">
+                    <img src="./Assets/Other/GitHub.svg" id="github-icon">
+                </a>
+            </div>
+        </footer>
+
+        <script src="./JavaScript/Home.js"></script>
     </body>
-    <footer>
-        Version 0.7
-    </footer>
 </html>

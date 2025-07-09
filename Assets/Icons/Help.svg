@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 34.59">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: aqua;
+      }
+
+      .cls-2 {
+        font-family: CascadiaMono-Regular, 'Cascadia Mono';
+        font-size: 24px;
+        font-variation-settings: 'wght' 400;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M15,2c7.17,0,13,5.83,13,13s-5.83,13-13,13S2,22.17,2,15,7.83,2,15,2M15,0C6.72,0,0,6.72,0,15s6.72,15,15,15,15-6.72,15-15S23.28,0,15,0h0Z"/>
+  <text class="cls-2" transform="translate(8.26 23)"><tspan x="0" y="0">?</tspan></text>
+</svg>

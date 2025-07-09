@@ -1,0 +1,781 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    /* The default settings. These are changed if the screen size gets smaller. */ 
+    --game-width: 450px;
+    --square-width: 50px;
+    --player-face-width: 35px 35px;
+    --control-btn-width: 80px;
+    --option-btn-width-modifier: 0px;
+    --font-list: "Jetbrains Mono", "Fira Code", "Consolas", monospace;
+    --legend-size: 10px;
+    --grid-width: 9;
+    --grid-height: var(--grid-width);
+    --settings-height: 350px;
+    --settings-width: 400px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--background-color);
+
+    /** <THEMES> **/
+    &.dark {
+        /* Dark mode colors (default) */ 
+        --background-color: #202020;
+        --game-background: #404040;
+        --background-2: #1f272a;
+        --highlight-1: aqua;
+        --highlight-1-hidden: rgba(0, 255, 255, 0);
+        --highlight-2: aquamarine;
+        --highlight-2-hidden: rgb(127, 255, 212, 0);
+    }
+
+    &.light {
+        /* Light mode colors */
+        --background-color: #eee;
+        --game-background: #fff;
+        --background-2: #eee;
+        --highlight-1: #000;
+        --highlight-1-hidden: rgba(0, 255, 255, 0);
+        --highlight-2: #111;
+        --highlight-2-hidden: rgb(127, 255, 212, 0);
+
+        & .option img {
+            /* In light mode, make the option buttons black. */
+            filter: brightness(0);
+        }
+
+        & .object { border: 3px solid #000; }
+    }
+    /** </THEMES> **/
+}
+
+/** <BASE> **/
+#main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+    /* The game square */ 
+    > #main {
+        width: var(--game-width);
+        height: var(--game-width);
+        
+        background: var(--game-background);
+        border-radius: 5px;
+        display: grid;
+        
+        /* Define the total rows and columns of the grid */
+        grid-template-columns: repeat(var(--grid-width), var(--square-width));
+        grid-template-rows: repeat(var(--grid-height), var(--square-width));
+
+        > #player {
+            &::before {
+                opacity: 0;
+                content: "+1";
+                position: absolute;
+                transform: translate(-100%, -100%);
+                font-family: var(--font-list);
+                color: var(--highlight-2);
+            }
+
+            &.scored::before {
+                animation: fadeUp 1s ease-in-out;
+            }
+        }
+
+        > #box {
+            background-image: url("../Assets/Icons/Box.svg");
+        }
+
+        > #goal {
+            background-color: white;
+            background-image: url("../Assets/Icons/Goal.svg");
+        }
+    }
+}
+/** </BASE> **/
+
+/** <OPTIONS> **/
+#options-section {
+    height: 98%;
+    width: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    border: 3px solid var(--highlight-1);
+    border-radius: 5px;
+
+    > legend {
+        font-size: var(--legend-size);
+        color: var(--highlight-2);
+        font-family: var(--font-list);
+        font-weight: 1000;
+        margin-left: 5px;
+        padding: 0 5px;
+    }
+
+    > .option {
+        height: calc(60px + var(--option-btn-width-modifier));
+        width: calc(60px + var(--option-btn-width-modifier));
+        font-size: 30px;
+        background: none;
+        border: 0px solid var(--highlight-2-hidden);
+        border-radius: 10px;
+        color: var(--highlight-1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-weight: 1000;
+        
+        &::before {
+            font-family: var(--font-list);
+            font-size: 10px;
+            color: var(--highlight-1-hidden);
+            font-weight: 1000;
+            transition: color 0.3s ease;
+        }
+        
+        &:hover {
+            border: 4px solid var(--highlight-2);
+        }
+        
+        &:hover::before, &:active::before {
+            color: var(--highlight-1);
+        }
+        
+        &:not(#restart-btn) img {
+            transform: scale(0.95);
+        }
+        
+        &:not(#restart-btn):hover img {
+            transform: scale(1);
+        }
+        
+        &:is(#help-btn) {
+            &::before {
+                content: "Help";
+                margin-top: -5px;
+            }
+            
+            > img {
+                width: calc(32px + var(--option-btn-width-modifier));
+            }
+        }
+        
+        &:is(#home-btn) {
+            &::before { content: "Home"; }
+            
+            > img {
+                width: calc(25px + var(--option-btn-width-modifier));
+            }
+        }
+        
+        &:is(#restart-btn) {
+            &::before { content: "Restart"; }
+            
+            > img {
+                transform-origin: center;
+                animation: derotate 0.5s ease;
+                width: calc(25px + var(--option-btn-width-modifier));
+            }
+            
+            &:hover > img {
+                animation: rotate 2s linear infinite;
+            }
+        }
+        
+        &:is(#changelog-btn) {
+            &::before {
+                content: "Changelog";
+                font-size: 9px;
+            }
+            
+            > img { 
+                width: calc(32px + var(--option-btn-width-modifier));
+            }
+        }
+        
+        &:is(#settings-btn) {
+            &::before { content: "Settings"; }
+            
+            > img { 
+                width: calc(30px + var(--option-btn-width-modifier)); 
+            }
+        }
+        
+        &:active {
+            background-color: var(--highlight-2);
+            border-width: 8px;
+            color: var(--background-2);
+        }
+    }
+}
+
+@keyframes derotate {
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+/** </OPTIONS> **/
+
+/** <GAME OBJECTS> **/
+.object {
+    width: var(--square-width);
+    aspect-ratio: 1;
+    border-radius: 5px;
+}
+
+#player, #player-color-display {
+    /*
+     NOTE: background-color will change depending on what is
+           set in the settings menu or by pressing "[" or "]" 
+           on the keyboard. The possible colors are: 
+           - white 
+           - red
+           - orange
+           - yellow
+           - lime
+           - green
+           - blue
+           - purple
+           - magenta
+           - black*
+
+     *: For this color, an invert() filter is used to make
+        the face visible.
+     In light mode, the player is given a black border to
+     make them more visible.
+    */
+    background-color: white;
+    background-image: url("../Assets/Icons/Player.svg");
+    background-repeat: no-repeat;
+    background-size: var(--player-face-width);
+    background-position: 50%;
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translate(-100%, 0%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-100%, -50%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-100%, -100%);
+        opacity: 0;
+    }
+}
+/** </GAME OBJECTS> **/
+
+/** <INFO> **/
+#info-section {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+
+    > .sub-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        border: 3px solid var(--highlight-1);
+        padding: 5px 10px;
+        border-radius: 5px;
+        
+        > legend {
+            font-size: var(--legend-size);
+            font-family: var(--font-list);
+            color: var(--highlight-2);
+            padding: 0 5px;
+            font-weight: 1000;
+        }
+    }
+}
+
+.info {
+    color: var(--highlight-1);
+    font-family: var(--font-list);
+    font-weight: 1000;
+    font-size: 18px;
+}
+/** </INFO> **/
+
+/** <SCORE> **/
+#score, #highscore {
+    font-size: 40px;
+    width: 180px;
+    border: 3px solid var(--highlight-1);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px !important;
+
+    > legend {
+        font-size: var(--legend-size);
+        padding: 0 5px;
+    }
+
+    & .placeholder {
+        color: var(--background-2);
+        font-style: normal;
+    }
+}
+
+
+.info span, #score, #highscore {
+    color: var(--highlight-2);
+}
+/** </SCORE> **/
+
+/** <MOBILE CONTROLS> **/
+.controls {
+    display: none;
+    border: 3px solid var(--highlight-1);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+
+    > legend {
+        color: var(--highlight-2);
+        font-family: var(--font-list);
+        font-size: var(--legend-size);
+        font-weight: 1000;
+        padding: 0 5px;
+    }
+
+    & .control {
+        width: var(--control-btn-width);
+        height: var(--control-btn-width);
+        font-family: var(--font-list);
+        background: none;
+        border: 3px solid var(--highlight-1);
+        border-radius: 5px;
+        cursor: pointer;
+        color: var(--highlight-1);
+        font-size: 40px;
+        
+        &:hover, &:active {
+            background: var(--highlight-1);
+            color: var(--background-color);
+        }
+    }
+
+    > .controls-center {
+        display: flex;
+        flex-direction: column;
+        gap: var(--control-btn-width);
+    }
+}
+
+/** </MOBILE CONTROLS> **/
+
+/** <SETTINGS MENU> **/
+#settings-menu {
+    background: var(--background-color);
+    border: 2px solid var(--highlight-2);
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: var(--settings-height);
+    width: 400px;
+    padding: 10px;
+    color: var(--highlight-1);
+    font-family: var(--font-list);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease, transform 3s ease;
+    z-index: 2;
+
+    > .settings-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        > #settings-exit-btn {
+            font-size: 35px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            background: var(--background-color);
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+
+            &:hover {
+                background: var(--highlight-1);
+                color: var(--background-color);
+            }
+        }
+
+        > #settings-footer {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: calc((50% - (var(--settings-width) / 2)) + 10px);
+            top: calc((50% + (var(--settings-height) / 2)) - 28px);
+        }
+
+        > .setting-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            margin-left: 30px;
+
+            > .setting {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 5px;
+
+                &:has(#colorModeSwitch) {
+                    gap: 20px;
+                }
+
+                > #darkModeImg {
+                    width: calc(var(--square-width) - 10px);
+                }
+
+                > #lightModeImg {
+                    width: var(--square-width);
+                }
+
+                > .setting-btn {
+                    width: var(--square-width);
+                    height: var(--square-width);
+                    font-size: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: var(--highlight-1) solid 3px;
+                    border-radius: 5px;
+                    background: none;
+                    color: var(--highlight-1);
+                    cursor: pointer;
+
+                    &:hover {
+                        color: var(--background-color);
+                        background: var(--highlight-1);
+                    }
+                }
+
+                > .setting-switch-container {
+                    width: calc(var(--square-width) * 4);
+                    height: var(--square-width);
+                    background: var(--game-background);
+                    border-radius: 10px;
+
+                    > #colorModeSwitch {
+                        appearance: none;
+                        background: var(--highlight-1);
+                        width: var(--square-width);
+                        height: var(--square-width);
+                        border-radius: 10px;
+                        margin-left: 0%;
+                        cursor: pointer;
+                    
+                        &:hover {
+                            background: var(--highlight-2);
+                        }
+                    
+                        &:checked {
+                            margin-left: 100%;
+                            transform: translateX(-100%);
+                        }
+                    }
+                }
+            }
+
+            &:is(#danger-settings) {
+                margin-top: 30px;
+                
+                & .danger-setting-btn {
+                    border: 3px solid red;
+                    color: red;
+                    background: var(--background-color);
+                    font-family: var(--font-list);
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                
+                    &:hover {
+                        background: red;
+                        color: var(--background-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#dialog-modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(40, 40, 40, 0.4);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/** </SETTINGS MENU> **/
+
+/** <CONFIRMATION POPUP> **/
+#confirmation-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    z-index: 2;
+
+    > #confirmation-popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-list);
+        gap: 20px;
+        z-index: 2;
+        background: var(--background-color);
+        color: var(--highlight-1);
+        width: 380px;
+        padding: 10px 20px;
+        border: 3px solid var(--highlight-1);
+        border-radius: 15px;
+
+        > #confirmation-heading {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            
+            > h1 {
+                font-size: 30px;
+            }
+            
+            > h2 {
+                font-size: 20px;
+            }
+        }
+
+        .confirmation-option {
+            width: 100px;
+            height: 40px;
+            background: var(--background-color);
+            border: 3px solid;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        
+            &:hover {
+                color: var(--background-color) !important;
+            }
+
+            &:is(#confirmation-confirm) {
+                color: lime;
+                border-color: lime;
+                
+                &:hover {
+                    background: lime;
+                }
+            }
+
+            &:is(#confirmation-deny) {
+                color: red;
+                border-color: red;
+                
+                &:hover {
+                    background: red;
+                }
+            }
+        }
+    }
+}
+
+/** </CONFIRMATION POPUP> **/
+
+/* Large Screen Layouts */
+@media only screen and (max-width: 1100px) {
+    :root {
+        --game-width: 700px !important;
+    }
+}
+
+@media only screen and (min-height: 900px) and (min-width: 780px) {
+    :root {
+        --game-width: 630px;
+        --square-width: 70px;
+        --player-face-width: 50px 50px;
+        --option-btn-width-modifier: 20px;
+        --legend-size: 15px;
+    }
+
+    #score, #highscore {
+        font-size: 95px;
+        padding: 0 20px;
+    }
+
+    .sub-info {
+        padding: 12px 20px;
+    }
+
+    #main-container {
+        gap: 20px;
+
+        > #options-section {
+            width: 120px;
+            gap: 35px;
+
+            > .option {
+                padding: 10px;
+            }
+        }
+    }
+
+    .info {
+        font-size: 25px;
+    }
+
+    #settings-menu {
+        width: 800px;
+        height: 600px;
+        padding: 50px;
+
+        & h1 {
+            font-size: 60px;
+        }
+
+        & h2 {
+            font-size: 40px;
+        }
+    }
+
+    .settings-content {
+        gap: 30px;
+
+        > #settings-exit-btn {
+            font-size: 80px;
+            margin: 18px;
+            width: 60px;
+            height: 60px;
+            padding-left: 2px;
+            padding-bottom: 2px;
+        }
+    }
+}
+
+/* Mobile screen layouts */
+@media only screen and (max-width: 550px) and (max-height: 560px) {
+    :root {
+        --game-width: 270px !important;
+        --square-width: 30px !important;
+        --player-face-width: 23px 23px !important;
+        --control-btn-width: 30px;
+    }
+
+    .control {
+        font-size: 10px;
+    }
+
+    #score, #highscore {
+        font-size: 40px !important;
+    }
+
+    body {
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #options-section legend {
+        display: flex;
+        justify-content: center;
+    }
+
+    :root {
+        --game-width: 360px;
+        --square-width: 40px;
+        --player-face-width: 30px 30px;
+        --legend-size: 15px;
+        --option-btn-width-modifier: -12px;
+    }
+
+    .sub-info {
+        display: none;
+    }
+
+    .controls {
+        display: flex;
+    }
+
+    #score, #highscore {
+        font-size: 80px;
+    }
+
+    #main {
+        margin-top: 15px;
+    }
+
+    .option::before {
+        content: "" !important;
+    }
+}
+
+@media only screen and (max-height: 560px) {
+    :root {
+        --game-width: 360px;
+        --square-width: 40px;
+        --player-face-width: 30px 30px;
+    }
+
+    #danger-settings {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    :root {
+        --square-width: 30px;
+        --game-width: 270px;
+        --player-face-width: 23px 23px;
+    }
+
+    body { 
+        gap: 5px; 
+    }
+}

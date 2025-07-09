@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+body {
+    color: aqua;
+    font-family: "Jetbrains Mono", "Fira Code", monospace;
+    margin: 10px;
+}
+
+:root {
+    --fade-in: fade 0.2s ease forwards;
+    --fade-out: fade 0.2s ease reverse;
+}
+
+#link-container a {
+    text-decoration: none;
+    color: aqua;
+}
+
+#link-container a:hover {
+    color: aquamarine;
+}
+
+.icon-text {
+    color: rgb(0, 140, 255);
+}
+
+.icon-text::after {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    content: "";
+    margin-top: -60px;
+    border-radius: 5px;
+    animation: var(--fade-out);
+    display: none;
+    opacity: 0;
+    background-repeat: no-repeat;
+    margin-left: -50px;
+}
+
+.icon-text:hover::after {
+    display: unset;
+    opacity: 1;
+    animation: var(--fade-in);
+}
+
+.player::after {
+    background-image: url("../Assets/Common/Player.svg");
+    background-size: 40px;
+    background-position: 50%;
+}
+
+.player::after, .goal::after {
+    background-color: white;
+}
+
+.box::after {
+    background-image: url("../Assets/Common/Box.svg");
+}
+
+.goal::after {
+    background-image: url("../Assets/Common/Goal.svg");
+}
+
+.controls, .main-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.control, .sub-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.sub-control {
+    padding: 2.5px 30px;
+    border-left: 2px solid aqua;
+}
+
+.key {
+    width: 25px;
+    height: 25px;
+    background: #303030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    gap: 5px;
+}
+
+.description {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}

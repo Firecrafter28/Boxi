@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Boxi</title>
+        
+        <!-- Global Stylesheet -->
+        <link rel="stylesheet" href="../Styles/globals.css">
+
+        <!-- Game-specific Stylesheets -->
+        <link rel="stylesheet" href="../Styles/Game.css">
+        <link rel="stylesheet" href="../Styles/Game-load.css">
+
+        <!-- Favicon -->
+        <link rel="icon" href="../Assets/Favicon/favicon.svg">
+
+        <script src="../JavaScript/Constants.js"></script>
+    </head>
+
+    <!-- 
+        `<body *class="dark"*>`
+        
+        
+        * Set the game to dark mode by default. If the user changes the mode to light in the
+        settings menu, then the class will be changed to "light". It will automatically be
+        changed to light if the user was last in light mode, meaning it was saved to localstorage.
+    -->
+    <body class="dark">
+<!-- <Settings Popup> -->
+        <dialog id="settings-menu">
+            <div class="settings-content">
+                <h1>Settings</h1>
+    
+        <!-- <Player Color Setting> -->
+                <div class="setting-wrapper">
+                    <h2>Player Color</h2>
+                    <div class="setting">
+                        <button class="setting-btn" id="add-color">&minus;</button>
+                        <div class="setting-value object" id="player-color-display"></div>
+                        <button class="setting-btn" id="subtract-color">+</button>
+                    </div>
+                </div>
+        <!-- </Player Color Setting> -->
+
+        <!-- <Theme Setting> -->
+                <div class="setting-wrapper">
+                    <h2>Theme</h2>
+                    <div class="setting">
+                        <img alt="Dark Mode Icon" src="../Assets/Common/Dark Mode.svg" class="setting-img" id="darkModeImg">
+                        <div class="setting-switch-container">
+                            <input type="checkbox" class="setting-switch" id="colorModeSwitch">
+                        </div>
+                        <img alt="Light Mode Icon" src="../Assets/Common/Light Mode.svg" class="setting-img" id="lightModeImg">
+                    </div>
+                </div>
+        <!-- </Theme Setting> -->
+
+        <!-- <Reset Highscore Button> -->
+                <div class="setting-wrapper" id="danger-settings">
+                    <div class="setting">
+                        <button class="danger-setting-btn" id="highscore-reset-btn">Reset Highscore</button>
+                    </div>
+                </div>
+        <!-- </Reset Highscore Button> -->
+
+                <!-- Exit Button -->
+                <div id="settings-exit-btn">&times;</div>
+
+                <!-- Footer -->
+                <div id="settings-footer">
+                    <div id="settings-footer__version"></div>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- Modal -->
+        <div id="dialog-modal"></div>
+<!-- </Settings Popup> -->
+
+<!-- <Confirmation Popup> -->
+        <dialog id="confirmation-popup">
+            <div id="confirmation-popup-content">
+                <div id="confirmation-heading">
+                    <h1>Are you sure?</h1>
+                    <h2>This change is irreversable</h2>
+                </div>
+                <div id="confirmation-options">
+                    <button id="confirmation-confirm" class="confirmation-option">Yes</button>
+                    <button id="confirmation-deny" class="confirmation-option">No</button>
+                </div>
+            </div>
+        </dialog>
+<!-- </Confirmation Popup> -->
+
+<!-- <Info> -->
+        <div id="info-section">
+    <!-- <Score> -->
+            <fieldset class="info" id="score">
+                <legend>Score</legend>
+                <div class="starting-text">
+                    <i class="placeholder">00000</i>0
+                </div>
+            </fieldset>
+    <!-- </Score> -->
+
+    <!-- <Highscore>  -->
+            <fieldset class="info" id="highscore">
+                <legend>Highscore</legend>
+                <div class="starting-text">
+                    <i class="placeholder">00000</i>0
+                </div>
+            </fieldset>
+    <!-- </Highscore> -->
+
+    <!-- <Coordinates> -->
+            <fieldset class="sub-info">
+                <legend>Coordinates</legend>
+                <div class="info" id="box-coords">Box (<span>?</span>, <span>?</span>)</div>
+                <div class="info" id="goal-coords">Goal (<span>?</span>, <span>?</span>)</div>
+                <div class="info" id="player-coords">Player (<span>?</span>, <span>?</span>)</div>
+            </fieldset>
+    <!-- </Coordinates> -->
+        </div>
+<!-- </Info> -->
+
+<!-- <Main> -->
+        <div id="main-container">
+    <!-- <Options Menu> -->
+            <fieldset id="options-section">
+                <legend>Options</legend>
+                
+                <!-- Restart -->
+                <button id="restart-btn" class="option" aria-label="restart button" role="button">
+                    <img src="../Assets/Icons/Restart.svg">
+                </button>
+                
+                <!-- Home -->
+                <button id="home-btn" class="option" aria-label="home button" role="button">
+                    <img src="../Assets/Icons/Home.svg">
+                </button>
+                
+                <!-- Help -->
+                <button id="help-btn" class="option" aria-label="help button" role="button">
+                    <img src="../Assets/Icons/Help.svg">
+                </button>
+
+                <!-- Changelog -->
+                <button id="changelog-btn" class="option" aria-label="changelog button" role="button">
+                    <img src="../Assets/Icons/Changelog.svg">
+                </button>
+                <!-- Settings -->
+                <button id="settings-btn" class="option" aria-label="settings button" role="button">
+                    <img src="../Assets/Icons/Settings.svg">
+                </button>
+            </fieldset>
+    <!-- </Options Menu> -->
+            
+    <!-- <Game> -->
+            <main id="main">
+                <div id="goal" class="entity object"></div> <!-- Goal -->
+                <div id="box" class="entity object"></div> <!-- Box -->
+                <div id="player" class="entity object"></div> <!-- Player -->
+            </main>
+    <!-- </Game> -->
+        </div>
+<!-- </Main> -->
+        
+<!-- <Mobile Controls> -->
+        <fieldset class="controls">
+            <legend>Controls</legend>
+            <button class="control" id="left-btn" aria-keyshortcuts="A" aria-label="left" role="button">&LeftArrow;</button>
+            <div class="controls-center">
+                <button class="control" id="up-btn" aria-keyshortcuts="W" aria-label="up" role="button">&UpArrow;</button>
+                <button class="control" id="down-btn" aria-keyshortcuts="S" aria-label="down" role="button">&DownArrow;</button>
+            </div>
+            <button class="control" id="right-btn" aria-keyshortcuts="D" aria-label="right" role="button">&RightArrow;</button>
+        </fieldset>
+<!-- </Mobile Controls> -->
+        <script src="../JavaScript/Game.js"></script>
+    </body>
+</html>
